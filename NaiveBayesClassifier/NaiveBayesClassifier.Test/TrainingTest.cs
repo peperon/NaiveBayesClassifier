@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NaiveBayesClassifier.Lib;
+using NaiveBayesClassifier.Library;
 
 namespace NaiveBayesClassifier.Test
 {

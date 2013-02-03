@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NaiveBayesClassifier.Lib\NaiveBayesClassifier.Lib.csproj">
+    <ProjectReference Include="..\NaiveBayesClassifier.Lib\NaiveBayesClassifier.Library.csproj">
       <Project>{bb9b220f-5afd-418d-b400-a5a90a499cb6}</Project>
-      <Name>NaiveBayesClassifier.Lib</Name>
+      <Name>NaiveBayesClassifier.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
