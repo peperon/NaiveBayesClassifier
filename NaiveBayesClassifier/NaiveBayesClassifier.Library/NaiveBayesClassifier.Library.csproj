@@ -45,6 +45,7 @@
     <Compile Include="IStorageWriter.cs" />
     <Compile Include="StopWordsHash.cs" />
     <Compile Include="Storage.cs" />
+    <Compile Include="StorageReader.cs" />
     <Compile Include="StorageWriter.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="ITrainer.cs" />

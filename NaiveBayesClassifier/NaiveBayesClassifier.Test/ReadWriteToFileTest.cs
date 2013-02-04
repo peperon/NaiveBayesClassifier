@@ -35,5 +35,28 @@ namespace NaiveBayesClassifier.Test
 
             Assert.IsTrue(File.Exists(_filename));
         }
+
+        [TestMethod]
+        public void Read_From_File()
+        {
+            var reader = new StorageReader();
+            var storage = reader.Read(_filename);
+
+            foreach(var category in _storage.Categories)
+            {
+                Assert.IsTrue(storage.Categories.ContainsKey(category.Key));
+                Assert.AreEqual(category.Value, storage.Categories[category.Key]);
+            }
+
+            foreach (var wordEntry in _storage.Words)
+            {
+                Assert.IsTrue(storage.Words.ContainsKey(wordEntry.Key));
+                foreach (var category in wordEntry.Value)
+                {
+                    Assert.IsTrue(storage.Words[wordEntry.Key].ContainsKey(category.Key));
+                    Assert.AreEqual(category.Value, storage.Words[wordEntry.Key][category.Key]);
+                }
+            }
+        }
     }
 }
