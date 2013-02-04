@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NaiveBayesClassifier.Library
 {
-    public interface IStorage
+    public interface IStorageReader
     {
+        Storage Read(string filePath);
     }
 }

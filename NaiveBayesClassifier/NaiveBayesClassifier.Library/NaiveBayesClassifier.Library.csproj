@@ -41,9 +41,11 @@
   <ItemGroup>
     <Compile Include="BayesClassifier.cs" />
     <Compile Include="IClassifier.cs" />
-    <Compile Include="IStorage.cs" />
+    <Compile Include="IStorageReader.cs" />
+    <Compile Include="IStorageWriter.cs" />
     <Compile Include="StopWordsHash.cs" />
     <Compile Include="Storage.cs" />
+    <Compile Include="StorageWriter.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="ITrainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

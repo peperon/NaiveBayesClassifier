@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaiveBayesClassifier.Library
 {
-    public class Storage : IStorage
+    public class Storage
     {
         public Storage()
         {
@@ -17,5 +17,19 @@ namespace NaiveBayesClassifier.Library
         public Dictionary<string, int> Categories { get; set; }
 
         public Dictionary<string, Dictionary<string, int>> Words { get; set; }
+
+        public override string ToString()
+        {
+            var strBuilder = new StringBuilder();
+
+            foreach (var category in Categories)
+                strBuilder.AppendLine(String.Format("[{0}, {1}]", category.Key, category.Value));
+            strBuilder.AppendLine("END_CATEGORY");
+            foreach (var wordEntry in Words)
+                foreach (var wordCategories in wordEntry.Value)
+                    strBuilder.AppendLine(String.Format("[{0}, {1}, {2}]", wordEntry.Key, wordCategories.Key, wordCategories.Value));
+            
+            return strBuilder.ToString();
+        }
     }
 }
