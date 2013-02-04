@@ -19,7 +19,7 @@ namespace NaiveBayesClassifier.Library
 
         public string Classify(string text)
         {
-            var maxProb = 0.0;
+            var maxProb = 0.001;
             var bestCategory = "";
             
             var scores = CategoryScores(text);

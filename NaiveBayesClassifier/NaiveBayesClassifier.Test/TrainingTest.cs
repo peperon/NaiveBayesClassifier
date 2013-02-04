@@ -12,7 +12,7 @@ namespace NaiveBayesClassifier.Test
         {
             var storage = Training();
 
-            Assert.AreEqual(2, storage.Words["price:"]["spam"]);
+            Assert.AreEqual(2, storage.Words["price"]["spam"]);
             Assert.AreEqual(1, storage.Categories["spam"]);
         }
 
