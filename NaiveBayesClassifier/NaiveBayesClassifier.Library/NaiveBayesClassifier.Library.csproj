@@ -7,8 +7,8 @@
     <ProjectGuid>{BB9B220F-5AFD-418D-B400-A5A90A499CB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NaiveBayesClassifier.Lib</RootNamespace>
-    <AssemblyName>NaiveBayesClassifier.Lib</AssemblyName>
+    <RootNamespace>NaiveBayesClassifier.Library</RootNamespace>
+    <AssemblyName>NaiveBayesClassifier.Library</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BayesClassifier.cs" />
+    <Compile Include="IClassifier.cs" />
     <Compile Include="IStorage.cs" />
     <Compile Include="StopWordsHash.cs" />
     <Compile Include="Storage.cs" />

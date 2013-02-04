@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NaiveBayesClassifier.Library
@@ -20,7 +21,8 @@ namespace NaiveBayesClassifier.Library
 
         public void Train(string text, string category)
         {
-            var words = text.Split('\n', ' ');
+            var removedPunctuationText = Regex.Replace(text, @"[^\w\s]", " ");
+            var words = removedPunctuationText.ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var word in words)
             {
                 if (!_stopWordsSet.Contain(word))

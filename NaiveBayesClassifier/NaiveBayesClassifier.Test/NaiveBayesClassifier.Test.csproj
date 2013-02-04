@@ -50,11 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ClassifierTest.cs" />
     <Compile Include="TrainingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NaiveBayesClassifier.Lib\NaiveBayesClassifier.Library.csproj">
+    <ProjectReference Include="..\NaiveBayesClassifier.Library\NaiveBayesClassifier.Library.csproj">
       <Project>{bb9b220f-5afd-418d-b400-a5a90a499cb6}</Project>
       <Name>NaiveBayesClassifier.Library</Name>
     </ProjectReference>
