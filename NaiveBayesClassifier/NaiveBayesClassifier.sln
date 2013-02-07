@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamFilter", "NaiveBayesClassifier\SpamFilter.csproj", "{F62AA141-D8B0-44DD-A4CF-71FE968B6BA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.Test", "NaiveBayesClassifier.Test\NaiveBayesClassifier.Test.csproj", "{DA4C4A6C-C171-4E33-B5A7-05692B58363D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.Library", "NaiveBayesClassifier.Library\NaiveBayesClassifier.Library.csproj", "{BB9B220F-5AFD-418D-B400-A5A90A499CB6}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{F62AA141-D8B0-44DD-A4CF-71FE968B6BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62AA141-D8B0-44DD-A4CF-71FE968B6BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62AA141-D8B0-44DD-A4CF-71FE968B6BA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA4C4A6C-C171-4E33-B5A7-05692B58363D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA4C4A6C-C171-4E33-B5A7-05692B58363D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA4C4A6C-C171-4E33-B5A7-05692B58363D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA4C4A6C-C171-4E33-B5A7-05692B58363D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB9B220F-5AFD-418D-B400-A5A90A499CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB9B220F-5AFD-418D-B400-A5A90A499CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB9B220F-5AFD-418D-B400-A5A90A499CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU

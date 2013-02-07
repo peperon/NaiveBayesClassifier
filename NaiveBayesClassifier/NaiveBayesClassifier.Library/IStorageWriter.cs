@@ -8,6 +8,6 @@ namespace NaiveBayesClassifier.Library
 {
     public interface IStorageWriter
     {
-        void Write(Storage storage, string filePath);
+        void Write(Storage storage, string fileSpecificPath, string fileWordsPath);
     }
 }

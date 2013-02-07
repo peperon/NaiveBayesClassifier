@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NaiveBayesClassifier.Library
 {
-    public class StopWordsSet
+    class StopWordsSet
     {
         private HashSet<string> _stopWords = new HashSet<string>
         {

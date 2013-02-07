@@ -8,6 +8,6 @@ namespace NaiveBayesClassifier.Library
 {
     public interface IStorageReader
     {
-        Storage Read(string filePath);
+        Storage Read(string fileSpecificPath, string fileWordsPath);
     }
 }

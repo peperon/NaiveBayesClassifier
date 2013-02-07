@@ -43,6 +43,7 @@
     <Compile Include="IClassifier.cs" />
     <Compile Include="IStorageReader.cs" />
     <Compile Include="IStorageWriter.cs" />
+    <Compile Include="SpamFilter.cs" />
     <Compile Include="StopWordsHash.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="StorageReader.cs" />

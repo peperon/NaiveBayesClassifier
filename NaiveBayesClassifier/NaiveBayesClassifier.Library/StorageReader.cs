@@ -9,44 +9,49 @@ namespace NaiveBayesClassifier.Library
 {
     public class StorageReader : IStorageReader
     {
-        public Storage Read(string filePath)
+        public Storage Read(string fileSpecificPath, string fileWordsPath)
         {
             Storage storage = null;
-            using (var streamReader = new StreamReader(filePath))
+            List<int> bits = null;
+
+            var fileInfo = new FileInfo(fileSpecificPath);
+            using(var fileStream = new FileStream(fileSpecificPath, FileMode.Open))
             {
-                var text = streamReader.ReadToEnd();
-                if(text != null || text != "")
-                    storage = CreateStorage(text);
+                var bytes = new byte[fileInfo.Length];
+                fileStream.Read(bytes, 0, (int)fileInfo.Length);
+                bits = bytes.SelectMany(GetBits).ToList();
+            }
+
+            if (bits == null || bits.Count == 0)
+                return null;
+
+            storage = new Storage();
+
+            using (var stream = new StreamReader(fileWordsPath))
+            {
+                for (int i = 0; i < bits.Count && !stream.EndOfStream; ++i)
+                {
+                    var line = stream.ReadLine();
+                    var pair = line.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+
+                    var category = bits[i] == 1 ? "spam" : "ham";
+                    if (!storage.Words.ContainsKey(pair[0]))
+                        storage.Words.Add(pair[0], new Dictionary<string, int> { { category, int.Parse(pair[1]) } });
+                    else
+                        storage.Words[pair[0]].Add(category, int.Parse(pair[1]));
+                }
             }
 
             return storage;
         }
 
-        private Storage CreateStorage(string text)
+        private IEnumerable<int> GetBits(byte b)
         {
-            var result = new Storage();
-            var isReadingCategories = true;
-            var lines = text.Replace("[", "").Replace("]", "").Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var line in lines)
+            for (int i = 0; i < 8; i++)
             {
-                if (line == "END_CATEGORIES")
-                {
-                    isReadingCategories = false;
-                    continue;
-                }
-                var splited_line = line.Split(new string[] { ", " }, StringSplitOptions.None);
-                if (isReadingCategories)
-                    result.Categories.Add(splited_line[0], int.Parse(splited_line[1]));
-                else
-                {
-                    if (result.Words.ContainsKey(splited_line[0]))
-                        result.Words[splited_line[0]].Add(splited_line[1], int.Parse(splited_line[2]));
-                    else
-                        result.Words.Add(splited_line[0], new Dictionary<string, int> { { splited_line[1], int.Parse(splited_line[2]) } });
-                }
+                yield return (b & 0x80) != 0 ? 1 : 0;
+                b *= 2;
             }
-            return result;
         }
     }
 }

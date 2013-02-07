@@ -22,22 +22,14 @@ namespace NaiveBayesClassifier.Library
         public void Train(string text, string category)
         {
             var removedPunctuationText = Regex.Replace(text, @"[^\w\s]", " ");
-            var words = removedPunctuationText.ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var words = removedPunctuationText.ToLower().Split(new char[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var word in words)
             {
-                if (!_stopWordsSet.Contain(word))
-                    IncrementWord(word, category);
+                if (!_stopWordsSet.Contain(word) && word.Length > 3)
+                    IncrementWord(word.Trim(), category);
             }
-            IncrementCategory(category);
         }
 
-        private void IncrementCategory(string category)
-        {
-            if (!Storage.Categories.ContainsKey(category))
-                Storage.Categories.Add(category, 1);
-            else
-                Storage.Categories[category] += 1;
-        }
 
         private void IncrementWord(string word, string category)
         {
