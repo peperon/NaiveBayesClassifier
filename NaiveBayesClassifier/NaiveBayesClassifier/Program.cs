@@ -16,9 +16,11 @@ namespace NaiveBayesClassifier
             {
                 var spamFile = string.Format("spam\\spam_test{0}.txt", i);
                 var hamFile = string.Format("ham\\ham_test{0}.txt", i);
-                
-                Console.WriteLine(spamFile + " is spam " + SpamFilter.IsSpam(spamFile));
-                Console.WriteLine(hamFile + " is ham " + !SpamFilter.IsSpam(hamFile));
+
+                if (!SpamFilter.IsSpam(spamFile))
+                    Console.WriteLine(spamFile);
+                if(!SpamFilter.IsSpam(hamFile))
+                    Console.WriteLine(hamFile);
             }
         }
     }
